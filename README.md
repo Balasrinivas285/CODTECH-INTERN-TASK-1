@@ -10,7 +10,8 @@
 ![IMG_1782](https://github.com/user-attachments/assets/6c006165-70da-4955-ad84-cba473bc64bf)
 
 
-### Project: Cyber security and ethical hacking
+### Project: Develop a tool to assess the strength of passwords entered by users. Implement algorithms to analyze factors such as length, complexity, and uniqueness to provide feedback on password strength.
+
 
 ### Objective
 The objective of cybersecurity is to protect computers, networks, and data from unauthorized access, attacks, and damage. The objective of ethical hacking is to find and fix security weaknesses in systems before bad hackers can exploit them.
