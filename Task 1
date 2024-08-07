@@ -1,0 +1,104 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Strength Checker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Password Strength Checker</h1>
+        <input type="password" id="password" placeholder="Enter your password" oninput="checkPasswordStrength()">
+        <div id="feedback"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+#feedback {
+    font-size: 18px;
+}
+
+.weak {
+    color: red;
+}
+
+.moderate {
+    color: orange;
+}
+
+.strong {
+    color: green;
+}
+
+
+function checkPasswordStrength() {
+    const password = document.getElementById('password').value;
+    const feedback = document.getElementById('feedback');
+
+    let strength = 0;
+
+
+    if (password.length >= 8) {
+        strength += 1;
+    }
+
+    
+    if (/[a-z]/.test(password) && /[A-Z]/.test(password)) {
+        strength += 1;
+    }
+
+   
+    if (/\d/.test(password)) {
+        strength += 1;
+    }
+
+    
+    if (/[@$!%*?&]/.test(password)) {
+        strength += 1;
+    }
+
+    
+    if (strength === 0) {
+        feedback.textContent = '';
+    } else if (strength === 1) {
+        feedback.textContent = 'Very Weak';
+        feedback.className = 'weak';
+    } else if (strength === 2) {
+        feedback.textContent = 'Weak';
+        feedback.className = 'weak';
+    } else if (strength === 3) {
+        feedback.textContent = 'Moderate';
+        feedback.className = 'moderate';
+    } else if (strength === 4) {
+        feedback.textContent = 'Strong';
+        feedback.className = 'strong';
+    }
+}
